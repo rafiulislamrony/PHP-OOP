@@ -4,11 +4,12 @@ class Car
 {
     //properties
     public $name;
-    public $color = "Black";
+    public $color = "";
     public function __construct($car_name, $color="blue")
     {
         $this->name = $car_name;
         $this->color = $color;
+        echo "inside this constructor </br>";
     } 
     //method 
     public function getCarName()
@@ -19,12 +20,20 @@ class Car
     {
         return $this->color;
     } 
+    public function __destruct()
+    {
+        echo "</br> Inside this destructor";
+    } 
 
 }
 //object 
-$bmw = new Car("BMW Car", "red"); 
-//  echo $bmw->name; 
-echo $bmw->getCarColor();
+$bmw = new Car("BMW Car ", "red"); 
+echo 'object is created</br>';
+echo $bmw->getCarName();
+
+
+
+
 
 // object 2nd
 // $nissian = new Car();
