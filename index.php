@@ -3,43 +3,59 @@
 class Car
 {
     //properties
-    public $name;
-    public $color = "";
-    public function __construct($car_name, $color="blue")
+    // public $name = "Car Name";
+    // protected $model = "Car_x";
+    // public $color = "Red";
+    // //method 
+    // public function detail()
+    // {
+    //     echo $this->name . '<br/>';
+    //     echo $this->model . '<br/>'; // 
+    //     echo $this->color . '<br/>'; // 
+    // }
+
+
+    //method
+    public function publicMethod(){
+        echo 'This is public method </br>';
+    }
+    protected function protectedMethod(){
+        echo 'This is protected method </br>';
+    }
+    private function privateMethod()
     {
-        $this->name = $car_name;
-        $this->color = $color;
-        echo "inside this constructor </br>";
-    } 
-    //method 
-    public function getCarName()
+        echo 'This is a private method </br>';
+    }
+    public function callPrivateMethod()
     {
-        return $this->name;
-    } 
-    public function getCarColor()
-    {
-        return $this->color;
-    } 
-    public function __destruct()
-    {
-        echo "</br> Inside this destructor";
-    } 
+       $this->privateMethod();
+    }
+
 
 }
 //object 
-$bmw = new Car("BMW Car ", "red"); 
-echo 'object is created</br>';
-echo $bmw->getCarName();
+$bmw = new Car();
+
+$bmw->publicMethod();
+// $bmw->protectedMethod();
+$bmw->callPrivateMethod();
 
 
 
 
 
-// object 2nd
-// $nissian = new Car();
-// // echo $nissian->name;
-// //echo $nissian->getCarName();
-// echo $nissian->setCarName("nissian Car");
+
+
+
+
+
+//  $bmw->name= "Bmw Car";
+//$bmw->model= "Bmw-X";
+//  $bmw->detail();
+// echo $bmw->name . '<br/>';
+//echo $bmw->model . '<br/>'; //Error
+// echo $bmw->color . '<br/>'; //Error 
+ 
 
 
 ?>
