@@ -15,31 +15,33 @@ class Car
     public function enginePowerdBy(){
         echo "Diesal";
     }
+    final function noOfWheels(){
+        echo 4;
+    }
     public function detail()
     {
         echo $this->name . '<br/>';
         echo $this->model . '<br/>'; // 
         echo $this->color . '<br/>'; // 
-        echo $this->ownerName. '<br/>';
     } 
 } 
 
-class Tesla extends Car{
-    public $ownerName;
-    // public function __construct($name, $model, $color, $ownerName){
-    //     $this->name = $name;
-    //     $this->model = $model;
-    //     $this->color = $color; 
-    // }
-    // public function enginePowerdBy(){
-    //     echo "Battery";
-    // }
+final class BMW{
+    public function enginePowerdBy(){
+        echo "Electric";
+    }
 }
 
-$tesla =new Tesla('tesla', 'teslax', 'RED');
+// class Tesla extends BMW{
+//     public function enginePowerdBy(){
+//         echo "Battery";
+//     }
+// }
+$BMW =new BMW();
+$BMW->enginePowerdBy();
 
-$tesla->detail(); 
-// $tesla->enginePowerdBy(); 
+// $tesla =new Tesla('tesla', 'teslax', 'RED');
+// $tesla->noOfWheels();  
 
 
 
