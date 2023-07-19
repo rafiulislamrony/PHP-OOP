@@ -21,5 +21,6 @@ class Post extends User {
 // echo User::getName();
 // echo User::$email;
  echo Post::allPost(); 
+ 
    
 ?>
