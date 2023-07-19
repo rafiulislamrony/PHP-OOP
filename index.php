@@ -1,34 +1,25 @@
 <?php
 
-trait Logger{
-    public $name = "Logger";
-    public function log($message){
-        echo $message;
+ 
+class User
+{ 
+    public static $email = "user@gmail.com";
+    public static function getAge(){
+        return 10;
     }
-} 
-class Post
-{
-    use Logger;
-    public function store(){
-        echo $this->name;
-        // post store
-        $this->log('post created');
+    public static function getName(){
+        return "User Name and age ". self::getAge() . " and email: ".self::$email;
     }
 }
-
-class Comment
-{
-    use Logger;
-    public function store(){
-        // post store
-        $this->log('comment created');
+class Post extends User {
+    public static function allPost(){
+        return " User Post : ". parent::getName();
     }
 }
-
-$post = new Post();
-$post->store();
-  
-$Comment = new Comment();
-$Comment->store();
-
+ 
+// $user = new User();
+// echo User::getName();
+// echo User::$email;
+ echo Post::allPost(); 
+   
 ?>
