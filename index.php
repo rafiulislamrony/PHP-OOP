@@ -1,21 +1,44 @@
 <?php
-
-abstract class Car
+interface CarInterface
 {
-    public function noWhells(){
-        echo 'Whells : 4';
-    }
-    abstract public function price($price);
-
+    public function startEngine();
+    public function stopEngine();
 }
 
-class BMW extends Car{
-    public function price($price){
-        echo "Price : " . $price;
+class BMW implements CarInterface
+{
+    public function startEngine()
+    {
+        echo 'BMW Start <br/>';
+    }
+    public function stopEngine()
+    {
+        echo 'BMW Stop <br/>';
+    }
+}
+class Nissan implements CarInterface
+{
+    public function startEngine()
+    {
+        echo 'Nissan Start <br/>';
+    }
+    public function stopEngine()
+    {
+        echo 'Nissan Stop <br/>';
     }
 }
 
-$BMW = new BMW(); 
-$BMW->price('100');
+function driveCar(CarInterface $car)
+{
+    $car->startEngine();
+    $car->stopEngine();
+}
+
+$bmw = new BMW();
+$nissan = new Nissan();
+
+driveCar($nissan);
+
+
 
 ?>
