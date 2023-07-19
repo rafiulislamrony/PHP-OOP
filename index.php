@@ -1,16 +1,21 @@
 <?php
 
-class Car
+abstract class Car
 {
-   const noOfWhels = "No Of Whells is 4";
-   public function getNoOfWhells(){
-    return self::noOfWhels;
-   }
+    public function noWhells(){
+        echo 'Whells : 4';
+    }
+    abstract public function price($price);
 
 }
 
-// echo $whells= Car::noOfWhels;
-$car = new Car();
-echo $car->getNoOfWhells(); 
+class BMW extends Car{
+    public function price($price){
+        echo "Price : " . $price;
+    }
+}
+
+$BMW = new BMW(); 
+$BMW->price('100');
 
 ?>
