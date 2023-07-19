@@ -1,44 +1,34 @@
 <?php
-interface CarInterface
-{
-    public function startEngine();
-    public function stopEngine();
-}
 
-class BMW implements CarInterface
+trait Logger{
+    public $name = "Logger";
+    public function log($message){
+        echo $message;
+    }
+} 
+class Post
 {
-    public function startEngine()
-    {
-        echo 'BMW Start <br/>';
-    }
-    public function stopEngine()
-    {
-        echo 'BMW Stop <br/>';
-    }
-}
-class Nissan implements CarInterface
-{
-    public function startEngine()
-    {
-        echo 'Nissan Start <br/>';
-    }
-    public function stopEngine()
-    {
-        echo 'Nissan Stop <br/>';
+    use Logger;
+    public function store(){
+        echo $this->name;
+        // post store
+        $this->log('post created');
     }
 }
 
-function driveCar(CarInterface $car)
+class Comment
 {
-    $car->startEngine();
-    $car->stopEngine();
+    use Logger;
+    public function store(){
+        // post store
+        $this->log('comment created');
+    }
 }
 
-$bmw = new BMW();
-$nissan = new Nissan();
-
-driveCar($nissan);
-
-
+$post = new Post();
+$post->store();
+  
+$Comment = new Comment();
+$Comment->store();
 
 ?>
